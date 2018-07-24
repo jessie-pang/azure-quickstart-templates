@@ -31,9 +31,9 @@
   "variables": {
     "dataDisk1Name": "[concat(uniquestring(parameters('vmName')), 'datadisk1')]",
     "dataDisk2Name": "[concat(uniquestring(parameters('vmName')), 'datadisk2')]",
-    "imagePublisher": "RedHat",
-    "imageOffer": "RHEL",
-    "imageSku": "7.2",
+    "imagePublisher": "OpenLogic",
+    "imageOffer": "CentOS",
+    "imageSku": "7.5",
     "nicName": "[concat(uniquestring(parameters('vmName')), 'nic')]",
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
