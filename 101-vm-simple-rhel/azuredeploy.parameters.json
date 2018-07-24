@@ -3,13 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "adminUsername": {
-            "value": "GEN-UNIQUE-8"
+            "value": "jessie"
         },
         "adminPassword": {
-            "value": "GEN-PASSWORD"
+            "value": "!QAZchangeme"
         },
         "vmName": {
-            "value": "GEN-UNIQUE-10"
+            "value": "Jessie-CentOS2"
         }
     }
 }
