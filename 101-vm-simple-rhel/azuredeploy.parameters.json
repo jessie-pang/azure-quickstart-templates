@@ -6,7 +6,7 @@
             "value": "jessie"
         },
         "adminPassword": {
-            "value": "!QAZchangeme"
+            "value": "changeme"
         },
         "vmName": {
             "value": "Jessie-CentOS2"
