@@ -42,14 +42,12 @@
     "imageOffer": "CentOS",
     "imageSku": "7.5",
     "nicName": "[concat(uniquestring(parameters('vmName')), 'nic')]",
-    "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
     "publicIPAddressName": "[concat(uniquestring(parameters('vmName')), 'publicip')]",
     "publicIPAddressType": "Dynamic",
     "vmSize": "Standard_A2",
-    "virtualNetworkName": "parameters('existingVNetName')",
-    "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
+    "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('existingVNetName'), variables('subnetName'))]"
   },
   
   "resources": [
@@ -64,23 +62,11 @@
     },
     {
       "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/virtualNetworks",
-      "name": "[variables('virtualNetworkName')]",
+      "type": "Microsoft.Network/virtualNetworks/subnets",
+      "name": "variables('subnetName')",
       "location": "[parameters('location')]",
       "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "[variables('addressPrefix')]"
-          ]
-        },
-        "subnets": [
-          {
-            "name": "[variables('subnetName')]",
-            "properties": {
               "addressPrefix": "[variables('subnetPrefix')]"
-            }
-          }
-        ]
       }
     },
     {
@@ -90,7 +76,7 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+        "[concat('Microsoft.Network/virtualNetworks/subnets/', variables('subnetName'))]"
       ],
       "properties": {
         "ipConfigurations": [
