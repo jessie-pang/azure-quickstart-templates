@@ -28,7 +28,8 @@
       }
     }
   },
-    "variables": {
+  
+  "variables": {
     "dataDisk1Name": "[concat(uniquestring(parameters('vmName')), 'datadisk1')]",
     "dataDisk2Name": "[concat(uniquestring(parameters('vmName')), 'datadisk2')]",
     "imagePublisher": "OpenLogic",
@@ -43,7 +44,8 @@
     "vmSize": "Standard_A2",
     "virtualNetworkName": "[concat(uniquestring(parameters('vmName')), 'vnet')]",
     "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
-  }，
+  },
+  
   "resources": [
     {
       "apiVersion": "2015-06-15",
